@@ -16,11 +16,8 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-
 <body class="banner-area"> 
   
 <!--header section -->
@@ -45,11 +42,7 @@
 
 <div class="youtube-width">
   <div class="youtube-container">
-  <!-- <iframe src="https://www.youtube.com/embed/foSpMc0y0is?rel=0&autoplay=1&loop=0&wmode=opaque"" frameborder="0" allowfullscreen></iframe>
-  -->
   <div id="player"></div>
-
-
 </div>
   </div>
             <!--Countdown -->
@@ -58,46 +51,10 @@
           </div>
         </div>
 		</div> 
-			  <!-- <div class="row">
-				<div class="col-md-10 col-md-offset-1">
 		
-
-		<div id="subscribes" class="subscribe"> 
-
-			  <div class="subscribe-form"> 
-				<h2>Watch Official Trailer</h2>	   
-        
-				<input type="submit" name="send" value="Watch" id="subsubmit" class="btn2" onclick="window.open('https://www.youtube.com/watch?v=foSpMc0y0is&ab_channel=SwaminarayanBhagwan','popUpWindow','height=400,width=600,left=10,top=10,,scrollbars=no,menubar=no'); return false;" />
-     
-				
-		
-				<div id="mesaj"></div>
-		
-						</div> 
-					</div>
-				</div>
-			</div>  -->
-
-
       </div>
     </div>
-	<!-- Footer section -->
-<!-- <footer class="footer">
-  <div class="container">
-    <div class="row"> 
-      <div class="col-md-10 col-md-offset-1">
-        <ul class="footer-share">
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-        </ul> 
-        <p> Copyright © 2020 Template by <a href="http://webthemez.com/coming-soon-template/">WebThemez</a></p>
-      </div>
-    </div>
-  </div> 
-</footer> -->
-<!-- Footer section -->  
+	
 </section>
 <!--header section -->  
  
@@ -128,10 +85,6 @@
       videoId: 'N4Cv6reWRzM',
       playerVars: {
                     autoplay: 1,
-                   // loop: 1,
-                   // controls: 0,
-                   // showinfo: 0,
-                   // autohide: 1,
                     mute:1,
                     modestbranding: 1,
                     vq: 'hd1080',
@@ -151,28 +104,16 @@
   function onPlayerReady(event) {
     event.target.playVideo();
   }
-
-  // 5. The API calls this function when the player's state changes.
-  //    The function indicates that when playing a video (state=1),
-  //    the player should play for six seconds and then stop.
-  var done = false;
   function onPlayerStateChange(event) {
 
     if (event.data == YT.PlayerState.ENDED) {   
            player.loadVideoById ('N4Cv6reWRzM');
         }    
-
-    changeBorderColor(event.data);
-    // if (event.data == YT.PlayerState.PLAYING && !done) {
-    //   setTimeout(stopVideo, 6000);
-    //   done = true;
-    // }
+       changeBorderColor(event.data);
   }
   function stopVideo() {
     player.stopVideo();
   }
-
-
   function changeBorderColor(playerStatus) {
     var color;
 
@@ -188,11 +129,8 @@
     } else if (playerStatus == 1) {
       color = "#33691E"; // playing = green
       if (player.isMuted()) {
-     // alert("fire");
-                    player.unMute();
-                  // player.playVideo();
-                  
-                } 
+            player.unMute();
+      } 
     } else if (playerStatus == 2) {
       color = "#DD2C00"; // paused = red
     } else if (playerStatus == 3) {
